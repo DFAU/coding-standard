@@ -7,22 +7,12 @@
 Install this package:
 
     composer require --dev dfau/coding-standard
+    
+Execute fixer via (in a typo3 extension context):
 
-## Phar usage
+    .Build/bin/ecs check --no-progress-bar -n -c .Build/vendor/dfau/coding-standard/ecs.php
 
-To create the phar, you need to install `humbug/box`:
+Fix errors
 
-    brew tap humbug/box
-    brew install box
+    .Build/bin/ecs check --no-progress-bar -n -c .Build/vendor/dfau/coding-standard/ecs.php --fix
 
-Install the dependencies
-
-    composer install --optimize-autoloader -n
-
-Create the phar file
-
-    box build -c box.json
-
-The newly created phar file can be used just like the `ecs` binary is used:
-
-    ecs-standalone.phar --help
