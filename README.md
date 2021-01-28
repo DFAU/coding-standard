@@ -8,7 +8,7 @@ Install this package:
 
     composer require --dev dfau/coding-standard
     
-Execute fixer via (in a typo3 extension context):
+Run coding standard check via (in a typo3 extension context):
 
     .Build/bin/ecs check --no-progress-bar -n -c .Build/vendor/dfau/coding-standard/ecs.php
 
