@@ -10,9 +10,9 @@ Install this package:
     
 Run coding standard check via (in a typo3 extension context):
 
-    .Build/bin/ecs check --no-progress-bar -n -c .Build/vendor/dfau/coding-standard/ecs.php
+    .Build/bin/ecs check -c .Build/vendor/dfau/coding-standard/ecs.php Classes
 
-Fix errors
+To fix errors add `--fix` to  
 
-    .Build/bin/ecs check --no-progress-bar -n -c .Build/vendor/dfau/coding-standard/ecs.php --fix
+    .Build/bin/ecs check -c .Build/vendor/dfau/coding-standard/ecs.php Classes --fix
 
