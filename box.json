@@ -1,0 +1,18 @@
+{
+  "finder": [
+    {
+      "name": ["*.php", "*.xsd", "*.neon", "*.yml", "*.yaml", "*.xml", "LICENSE"],
+      "exclude": ["Tests", "tests"],
+      "in": "vendor"
+    }
+  ],
+  "files": [
+    "vendor/friendsofphp/php-cs-fixer/tests/TestCase.php"
+  ],
+  "directories": [
+    "vendor/friendsofphp/php-cs-fixer/tests/Test"
+  ],
+  "force-autodiscovery": true,
+  "main": "vendor/symplify/easy-coding-standard/bin/ecs",
+  "output": "build/ecs-standalone.phar"
+}
