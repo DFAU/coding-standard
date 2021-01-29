@@ -153,13 +153,20 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator->parameters();
     $parameters->set(Option::SETS, [SetList::CLEAN_CODE, SetList::PSR_12]);
 
-    $parameters->set('skip', [
+    $parameters->set(OPTION::SKIP, [
         'PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.SpacingAfterOpenBrace' => null,
         'PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.SpaceBeforeCloseBrace' => null,
         'PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.LineAfterClose' => null,
         'PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.NoLineAfterClose' => null,
         'PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\FunctionCallSignatureSniff.OpeningIndent' => null,
     ]);
+
+    $parameters->set(OPTION::SKIP, [
+        DeclareStrictTypesFixer::class => [
+            'ext_*.php'
+        ]
+    ]);
+
 
     $services = $containerConfigurator->services();
 
