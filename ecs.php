@@ -163,8 +163,16 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $parameters->set(OPTION::SKIP, [
         DeclareStrictTypesFixer::class => [
-            'ext_*.php'
-        ]
+            'ext_*.php',
+            'Configuration/TCA/*',
+            'Configuration/ThemeSettings/*',
+            'Configuration/SiteConfiguration/*',
+        ],
+    ]);
+
+    $parameters->set(OPTION::EXCLUDE_PATHS, [
+        'Resource/node_modules/*',
+        'Resources/Public/node_modules/*',
     ]);
 
 
