@@ -339,7 +339,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(NewWithBracesFixer::class);
 
     $services->set(PhpdocAlignFixer::class)
-        ->tag('param');
+        ->call('configure', [['align' => PhpdocAlignFixer::ALIGN_LEFT]]);
 
     $services->set(UnaryOperatorSpacesFixer::class);
 
