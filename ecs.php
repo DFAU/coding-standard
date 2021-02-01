@@ -173,6 +173,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters->set(OPTION::EXCLUDE_PATHS, [
         'Resource/node_modules/*',
         'Resources/Public/node_modules/*',
+        'Resources/Private/Deployment/recipe/*',
     ]);
 
 
