@@ -5,17 +5,20 @@
   "authors": [
     {
       "name": "dfau",
-      "email": "support@dfau.de"
+      "email": "dev@dfau.de"
     }
   ],
   "require": {
     "php": "^7.2",
 
-    "slevomat/coding-standard": "^6.4",
-    "symplify/easy-coding-standard-prefixed": "^8.3"
+    "slevomat/coding-standard": "^7.0",
+    "symplify/easy-coding-standard": "^9.0",
+
+    "phpstan/phpstan": "^0.12.90",
+    "phpstan/phpstan-webmozart-assert": "^0.12.12"
   },
   "require-dev": {
-    "roave/security-advisories": "dev-master"
+    "roave/security-advisories": "dev-latest"
   },
   "autoload": {
   }
