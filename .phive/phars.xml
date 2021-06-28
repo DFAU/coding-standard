@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phive xmlns="https://phar.io/phive">
+  <phar name="martin-helmich/typo3-typoscript-lint" version="^2.5.2" installed="2.5.2" location="./bin/typo3-typoscript-lint" copy="true"/>
+</phive>
