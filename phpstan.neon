@@ -1,5 +1,8 @@
+#
+# This is only a template file!
+#
 includes:
-  - vendor/friendsoftypo3/phpstan-typo3/extension.neon # this takes care of the TYPO3 specific constants
+  - .Build/vendor/friendsoftypo3/phpstan-typo3/extension.neon # this takes care of the TYPO3 specific constants
 parameters:
   level: 7
   paths:
