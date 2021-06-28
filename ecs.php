@@ -166,10 +166,10 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             'Configuration/SiteConfiguration/*',
         ],
 
-        __DIR__ . '/Resource/node_modules/*',
-        __DIR__ . '/Resources/Public/node_modules/*',
-        __DIR__ . '/Resources/Private/Deployment/recipe/*',
-        __DIR__ . '/ecs.php',
+        'Resource/node_modules/*',
+        'Resources/Public/node_modules/*',
+        'Resources/Private/Deployment/recipe/*',
+        'ecs.php',
 
         \PhpCsFixer\Fixer\Operator\NotOperatorWithSuccessorSpaceFixer::class,
         \PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer::class,
