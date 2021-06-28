@@ -15,7 +15,8 @@
     "symplify/easy-coding-standard-prefixed": "^9.0",
 
     "phpstan/phpstan": "^0.12.90",
-    "phpstan/phpstan-webmozart-assert": "^0.12.12"
+    "phpstan/phpstan-webmozart-assert": "^0.12.12",
+    "friendsoftypo3/phpstan-typo3": "^0.7.0"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest"
