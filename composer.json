@@ -9,7 +9,10 @@
     }
   ],
   "require": {
-    "php": "^7.3",
+    "php": "^7.3"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
 
     "slevomat/coding-standard": "^7.0",
     "symplify/easy-coding-standard-prefixed": "^9.0",
@@ -18,11 +21,8 @@
     "phpstan/phpstan-webmozart-assert": "^1.1.2",
     "friendsoftypo3/phpstan-typo3": "^0.9.0"
   },
-  "require-dev": {
-    "roave/security-advisories": "dev-latest"
-  },
   "bin": [
-    "bin/typo3-typoscript-lint"
+    "tools/typo3-typoscript-lint"
   ],
   "config": {
     "allow-plugins": {

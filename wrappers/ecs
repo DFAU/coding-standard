@@ -1,0 +1,40 @@
+#!/bin/bash
+
+BEFORE_SUBCOMMAND=()
+SUBCOMMAND=""
+CONFIG=""
+AFTER_SUBCOMMAND=()
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    check|check-heredoc-nowdoc|check-markdown|help|init|list|show)
+      SUBCOMMAND="$1"
+      shift
+      ;;
+    -c)
+      CONFIG="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    *)
+      if [ -z "$SUBCOMMAND" ]
+      then
+        BEFORE_SUBCOMMAND+=("$1")
+      else
+        AFTER_SUBCOMMAND+=("$1")
+      fi
+      shift
+      ;;
+  esac
+done
+
+if [ -z "$SUBCOMMAND" ]
+then
+  SUBCOMMAND="list"
+fi
+
+if [ "check" == "$SUBCOMMAND" ]; then
+    /usr/local/src/vendor/bin/ecs ${BEFORE_SUBCOMMAND[@]} $SUBCOMMAND --config=${CONFIG:-/usr/local/etc/ecs.php} ${AFTER_SUBCOMMAND[@]}
+else
+    /usr/local/src/vendor/bin/ecs ${BEFORE_SUBCOMMAND[@]} $SUBCOMMAND ${AFTER_SUBCOMMAND[@]}
+fi
