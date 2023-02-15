@@ -9,7 +9,7 @@
     }
   ],
   "require": {
-    "php": "^7.3",
+    "php": "^7.3 | ^8",
 
     "slevomat/coding-standard": "^7.0",
     "symplify/easy-coding-standard-prefixed": "^9.0",
