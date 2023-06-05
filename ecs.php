@@ -139,20 +139,17 @@ use SlevomatCodingStandard\Sniffs\Functions\UnusedInheritedVariablePassedToClosu
 use SlevomatCodingStandard\Sniffs\Operators\RequireCombinedAssignmentOperatorSniff;
 use SlevomatCodingStandard\Sniffs\PHP\UselessParenthesesSniff;
 use SlevomatCodingStandard\Sniffs\PHP\UselessSemicolonSniff;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symplify\EasyCodingStandard\ValueObject\Option;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
+use Symplify\EasyCodingStandard\Config\ECSConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
+return static function (ECSConfig $ecsConfig): void {
 
-    $parameters = $containerConfigurator->parameters();
-
-    $containerConfigurator->import(SetList::CLEAN_CODE);
-    $containerConfigurator->import(SetList::COMMON);
-    $containerConfigurator->import(SetList::PSR_12);
+    $ecsConfig->import(SetList::CLEAN_CODE);
+    $ecsConfig->import(SetList::COMMON);
+    $ecsConfig->import(SetList::PSR_12);
     // $containerConfigurator->import(SetList::SYMPLIFY);
 
-    $parameters->set(OPTION::SKIP, [
+    $ecsConfig->skip([
         'PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.SpacingAfterOpenBrace' => null,
         'PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.SpaceBeforeCloseBrace' => null,
         'PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.LineAfterClose' => null,
@@ -183,7 +180,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         \Symplify\CodingStandard\Fixer\ArrayNotation\ArrayListItemNewlineFixer::class,
     ]);
 
-    $services = $containerConfigurator->services();
+    $services = $ecsConfig->services();
 
     $services->set(NamespaceDeclarationSniff::class);
 
