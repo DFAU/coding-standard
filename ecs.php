@@ -274,7 +274,6 @@ return static function (ECSConfig $ecsConfig): void {
         $ecsConfig->ruleWithConfiguration(PhpdocSeparationFixer::class, ['groups' => [['Given', 'When', 'Then'], ['var', 'phpstan-var', 'psalm-var'], ['return', 'phpstan-return', 'psalm-return'], ['param', 'phpstan-param', 'psalm-param']]]);
     }
 
-
     $ecsConfig->skip([
         'PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.SpacingAfterOpenBrace' => null,
         'PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.SpaceBeforeCloseBrace' => null,
@@ -292,7 +291,6 @@ return static function (ECSConfig $ecsConfig): void {
         'Resource/node_modules/*',
         'Resources/Public/node_modules/*',
         'Resources/Private/Deployment/recipe/*',
-        'ecs.php',
 
         NotOperatorWithSuccessorSpaceFixer::class,
         OrderedClassElementsFixer::class,
@@ -305,5 +303,4 @@ return static function (ECSConfig $ecsConfig): void {
         ArrayOpenerAndCloserNewlineFixer::class,
         ArrayListItemNewlineFixer::class,
     ]);
-
 };
