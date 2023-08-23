@@ -11,7 +11,7 @@
   "require": {
     "php": "^7.3 | ^8",
 
-    "symplify/easy-coding-standard": "*",
+    "symplify/easy-coding-standard": "^11.5",
     "slevomat/coding-standard": "^7.0"
   },
   "require-dev": {
