@@ -288,7 +288,7 @@ return static function (ECSConfig $ecsConfig): void {
             'Configuration/SiteConfiguration/*',
         ],
 
-        'Resource/node_modules/*',
+        'Resources/node_modules/*',
         'Resources/Public/node_modules/*',
         'Resources/Private/Deployment/recipe/*',
 
