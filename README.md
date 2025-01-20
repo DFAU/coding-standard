@@ -7,7 +7,12 @@
 Install this package:
 
     composer require --dev dfau/coding-standard
-    
+
+### Update [typo3-typoscript-lint](bin%2Ftypo3-typoscript-lint)
+
+via [phive](https://github.com/phar-io/phive)
+
+    phive update
     
 ### [ECS (Easy Coding Standard)](https://github.com/symplify/easy-coding-standard)  
 Run coding standard check via (in a typo3 extension context):
