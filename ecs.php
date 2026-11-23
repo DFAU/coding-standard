@@ -138,12 +138,13 @@ use Symplify\CodingStandard\Fixer\ArrayNotation\ArrayOpenerAndCloserNewlineFixer
 use Symplify\EasyCodingStandard\Config\ECSConfig;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 
-return static function (ECSConfig $ecsConfig): void {
-    $ecsConfig->import(SetList::CLEAN_CODE);
-    $ecsConfig->import(SetList::COMMON);
-    $ecsConfig->import(SetList::PSR_12);
-
-    $ecsConfig->rules([
+return ECSConfig::configure()
+    ->withSets([
+        SetList::CLEAN_CODE,
+        SetList::COMMON,
+        SetList::PSR_12,
+    ])
+    ->withRules([
         BinaryOperatorSpacesFixer::class,
         BlankLineAfterNamespaceFixer::class,
         BlankLineAfterOpeningTagFixer::class,
@@ -251,30 +252,28 @@ return static function (ECSConfig $ecsConfig): void {
         UnaryOperatorSpacesFixer::class,
         WhitespaceAfterCommaInArrayFixer::class,
         YodaStyleFixer::class,
-    ]);
-
-    $ecsConfig->ruleWithConfiguration(ArraySyntaxFixer::class, ['syntax' => 'short']);
-    $ecsConfig->ruleWithConfiguration(BracesFixer::class, ['allow_single_line_closure' => true]);
-    $ecsConfig->ruleWithConfiguration(ClassDefinitionFixer::class, ['single_item_single_line' => true, 'multi_line_extends_each_single_line' => true]);
-    $ecsConfig->ruleWithConfiguration(ConcatSpaceFixer::class, ['spacing' => 'one']);
-    $ecsConfig->ruleWithConfiguration(ConstantCaseFixer::class, ['case' => 'lower']);
-    $ecsConfig->ruleWithConfiguration(ForbiddenAnnotationsSniff::class, ['forbiddenAnnotations' => ['@api', '@author', '@category', '@copyright', '@created', '@license', '@package', '@since', '@subpackage', '@version']]);
-    $ecsConfig->ruleWithConfiguration(IncrementStyleFixer::class, ['style' => 'pre']);
-    $ecsConfig->ruleWithConfiguration(ListSyntaxFixer::class, ['syntax' => 'short']);
-    $ecsConfig->ruleWithConfiguration(NoExtraBlankLinesFixer::class, ['tokens' => ['break', 'case', 'continue', 'curly_brace_block', 'default', 'extra', 'parenthesis_brace_block', 'return', 'square_brace_block', 'switch', 'throw', 'use']]);
-    $ecsConfig->ruleWithConfiguration(NoMixedEchoPrintFixer::class, ['use' => 'echo']);
-    $ecsConfig->ruleWithConfiguration(NoSuperfluousPhpdocTagsFixer::class, ['allow_mixed' => true]);
-    $ecsConfig->ruleWithConfiguration(OperatorLinebreakFixer::class, ['only_booleans' => true, 'position' => 'end']);
-    $ecsConfig->ruleWithConfiguration(PhpdocTypesOrderFixer::class, ['null_adjustment' => 'always_last', 'sort_algorithm' => 'none']);
-    $ecsConfig->ruleWithConfiguration(SingleLineCommentStyleFixer::class, ['comment_types' => ['hash']]);
-    $ecsConfig->ruleWithConfiguration(VisibilityRequiredFixer::class, ['elements' => ['const', 'property', 'method']]);
+    ])
+    ->withConfiguredRule(ArraySyntaxFixer::class, ['syntax' => 'short'])
+    ->withConfiguredRule(BracesFixer::class, ['allow_single_line_closure' => true])
+    ->withConfiguredRule(ClassDefinitionFixer::class, ['single_item_single_line' => true, 'multi_line_extends_each_single_line' => true])
+    ->withConfiguredRule(ConcatSpaceFixer::class, ['spacing' => 'one'])
+    ->withConfiguredRule(ConstantCaseFixer::class, ['case' => 'lower'])
+    ->withConfiguredRule(ForbiddenAnnotationsSniff::class, ['forbiddenAnnotations' => ['@api', '@author', '@category', '@copyright', '@created', '@license', '@package', '@since', '@subpackage', '@version']])
+    ->withConfiguredRule(IncrementStyleFixer::class, ['style' => 'pre'])
+    ->withConfiguredRule(ListSyntaxFixer::class, ['syntax' => 'short'])
+    ->withConfiguredRule(NoExtraBlankLinesFixer::class, ['tokens' => ['break', 'case', 'continue', 'curly_brace_block', 'default', 'extra', 'parenthesis_brace_block', 'return', 'square_brace_block', 'switch', 'throw', 'use']])
+    ->withConfiguredRule(NoMixedEchoPrintFixer::class, ['use' => 'echo'])
+    ->withConfiguredRule(NoSuperfluousPhpdocTagsFixer::class, ['allow_mixed' => true])
+    ->withConfiguredRule(OperatorLinebreakFixer::class, ['only_booleans' => true, 'position' => 'end'])
+    ->withConfiguredRule(PhpdocTypesOrderFixer::class, ['null_adjustment' => 'always_last', 'sort_algorithm' => 'none'])
+    ->withConfiguredRule(SingleLineCommentStyleFixer::class, ['comment_types' => ['hash']])
+    ->withConfiguredRule(VisibilityRequiredFixer::class, ['elements' => ['const', 'property', 'method']])
 
     // ECS 10 issue
-    if (is_a(PhpdocSeparationFixer::class, ConfigurableFixerInterface::class, true)) {
-        $ecsConfig->ruleWithConfiguration(PhpdocSeparationFixer::class, ['groups' => [['Given', 'When', 'Then'], ['var', 'phpstan-var', 'psalm-var'], ['return', 'phpstan-return', 'psalm-return'], ['param', 'phpstan-param', 'psalm-param']]]);
-    }
-
-    $ecsConfig->skip([
+    // if (is_a(PhpdocSeparationFixer::class, ConfigurableFixerInterface::class, true)) {
+    //     ->withConfiguredRule(PhpdocSeparationFixer::class, ['groups' => [['Given', 'When', 'Then'], ['var', 'phpstan-var', 'psalm-var'], ['return', 'phpstan-return', 'psalm-return'], ['param', 'phpstan-param', 'psalm-param']]])
+    // }
+    ->withSkip([
         'PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.SpacingAfterOpenBrace' => null,
         'PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.SpaceBeforeCloseBrace' => null,
         'PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.LineAfterClose' => null,
@@ -303,4 +302,3 @@ return static function (ECSConfig $ecsConfig): void {
         ArrayOpenerAndCloserNewlineFixer::class,
         ArrayListItemNewlineFixer::class,
     ]);
-};
