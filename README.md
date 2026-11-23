@@ -17,6 +17,9 @@ Run coding standard check via (in a typo3 extension context):
 To fix errors add `--fix` to  
 
     .Build/bin/ecs check -c .Build/vendor/dfau/coding-standard/ecs.php Classes --fix
+
+The latest version also allows the usage of the GO implementation of ECS.
+This means you can append `--blink` for 40x the execution speed 
     
 ### [TypoScript Lint](https://github.com/martin-helmich/typo3-typoscript-lint)
 Run typo3-typoscript-lint via:
